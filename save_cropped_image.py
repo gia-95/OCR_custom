@@ -10,7 +10,7 @@ print()
 
 cartella_documenti = 'documenti'
 
-cartella_dataset = 'image_dataset2'
+cartella_dataset = 'image_dataset'
 
 numero_immagine = 1
 numero_immagini_salvate = 0
@@ -35,23 +35,9 @@ for file_name in os.listdir(cartella_documenti) :
             # Ritaglia bounding-box corrente da immagine...
             parola_cropped = image_original[box[0][1]:box[2][1], box[0][0]:box[2][0] ]    
 
-            # Per renderla formato giusto per funzioni
-            cv2.imwrite("temp.png", parola_cropped)
-            img_cropped = cv2.imread('temp.png')
-
-            # Addrizza immagine
-            imagine_addrizzata = img_preprocess.addrizzaImmagine(box, img_cropped)
-            cv2.imwrite("temp_addrizza.png", imagine_addrizzata)
-            imagine_addrizzata = cv2.imread('temp_addrizza.png')
-
-            # Regola contrasto e luminosità
-            imagine_elaborata = img_preprocess.aggiustaContrasto(imagine_addrizzata)
-            cv2.imwrite("temp_contrastoLuminosita.png", imagine_elaborata)
-            imagine_elaborata = cv2.imread('temp_contrastoLuminosita.png')
-
             # SALVA IMMAGINE IN CARTELLA -> 'image_dataset'
-            nome_img_da_salvare = f'image_dataset2/img_{numero_immagine}.png'
-            cv2.imwrite(nome_img_da_salvare, imagine_elaborata)
+            nome_img_da_salvare = f'{cartella_dataset}/img_{numero_immagine}.png'
+            cv2.imwrite(nome_img_da_salvare, parola_cropped)
 
             # incrementa contatore immagine
             numero_immagine = numero_immagine + 1

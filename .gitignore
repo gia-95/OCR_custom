@@ -2,3 +2,10 @@ documenti/
 image_dataset/
 image_dataset2/
 modelli_allenati/
+__pycache__/
+backgrounds/
+fonts/
+images_cf/
+images_cf2/
+image_dataset_test/
+labels/

@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 
 
 
-directory_subset = 'image_dataset/subset_7'
-file_label_txt = 'labels/labels7.txt'
+directory_subset = 'image_dataset/subset_9'
+file_label_txt = 'labels/labels9.txt'
 file_label_to_delte_txt = 'labels/label_to_delete.txt'
 
 train_labels = []

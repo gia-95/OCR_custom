@@ -1,5 +1,5 @@
 import cv2
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 import utile_preprocessing as up
 import os
 import utile_labels as ul
@@ -11,7 +11,7 @@ labels = ul.get_labels_tot()
 print(len(labels))
 
 
-directory_to_read = 'image_dataset/subset_2'
+directory_to_read = 'image_dataset_definitivo/'
 direcotry_to_write_image = 'image_dataset_noise'
 file_labels = 'labels/noisy_labels.txt'
 rand_array = [3, 5]
@@ -41,14 +41,18 @@ with open(file_labels, 'a') as f:
                 word_to_insert = word
                 break
 
+        if (word_to_insert == 'xxx') :
+            continue
 
-        string_gauss = f'(\'image_dataset/noise_gauss_{filename}\', None, \'{word_to_insert}\'), '
-        string_median = f'(\'image_dataset/noise_median_{filename}\', None, \'{word_to_insert}\'), '
+
+        string_gauss = f'(\'image_dataset_noise/noise_gauss_{filename}\', None, \'{word_to_insert}\'), '
+        string_median = f'(\'image_dataset_noise/noise_median_{filename}\', None, \'{word_to_insert}\'), '
 
         f.write(string_gauss)
         f.write(string_median)
 
-        break
+        
+
     
 
 
